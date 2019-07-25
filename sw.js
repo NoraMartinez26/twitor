@@ -1,8 +1,8 @@
 //imports
 importScripts('js/sw_utils.js');
 
-const STATIC_CACHE = 'static-v13';
-const DYNAMIC_CACHE= 'dynamic-v10';
+const STATIC_CACHE = 'static-v14';
+const DYNAMIC_CACHE= 'dynamic-v11';
 const INMUTABLE_CACHE = 'inmutable-v10';
 
 const APP_SHELL = [
@@ -51,6 +51,16 @@ self.addEventListener('activae', e => {
                  return caches.delete(key);
                }
  
+
+
+               
+               if (key !== DYNAMIC_CACHE && key.includes('dynamic') ){
+ 
+                return caches.delete(key);
+              }
+
+
+
  
         });
  
